@@ -131,3 +131,7 @@ INFO 2025-05-22 00:12:49,471 utils Starting transcription of: C:\Users\dark0\dev
 INFO 2025-05-22 00:12:57,619 utils Transcription completed successfully
 INFO 2025-05-22 00:12:57,619 utils Transcript extracted successfully
 INFO 2025-05-22 00:12:57,620 tasks Successfully processed speech 4
+INFO 2025-05-22 00:27:44,584 utils Checking Whisper and FFmpeg availability
+INFO 2025-05-22 00:27:44,586 utils Checking FFmpeg at: C:\Users\dark0\dev\rebuttal\venv\Scripts\ffmpeg.exe
+INFO 2025-05-22 00:27:44,628 utils FFmpeg is available
+INFO 2025-05-22 00:27:45,908 utils Whisper is available

@@ -63,7 +63,7 @@ def process_speech_with_whisper(audio_path: str) -> str:
         logger.info("Transcription completed successfully")
 
         # Get the transcript
-        transcript = result["text"].strip()
+        transcript = str(result["text"]).strip()
         logger.info("Transcript extracted successfully")
         return transcript
 
