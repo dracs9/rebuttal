@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  {{ speech.title }} - Debate Coach AI
+{% endblock %}
+
+{% block content %}
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="max-w-3xl mx-auto">
+      <!-- Back to Dashboard -->
+      <div class="mb-6">
+        <a href="{% url 'dashboard' %}" class="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-500">
+          <i class="fas fa-arrow-left mr-2"></i>
+          Back to Dashboard
+        </a>
+      </div>
+
+      <!-- Speech Header -->
+      <div class="bg-white shadow rounded-lg p-6 mb-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <h1 class="text-2xl font-bold text-gray-900">{{ speech.title }}</h1>
+            <p class="mt-1 text-sm text-gray-500">Uploaded on {{ speech.created_at|date:'F j, Y' }}</p>
+          </div>
+          <span class="px-3 py-1 text-sm rounded-full 
+                    {% if speech.status == 'analyzed' %}
+              bg-green-100 text-green-800
+
+            {% elif speech.status == 'processing' %}
+              bg-yellow-100 text-yellow-800
+
+            {% else %}
+              bg-gray-100 text-gray-800
+            {% endif %}">
+            {{ speech.get_status_display }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Audio Player -->
+      <div class="bg-white shadow rounded-lg p-6 mb-6">
+        <h2 class="text-lg font-medium text-gray-900 mb-4">Your Speech</h2>
+        <audio controls class="w-full">
+          <source src="{{ speech.audio_file.url }}" type="audio/mpeg" />Your browser does not support the audio element.
+        </audio>
+      </div>
+
+      <!-- Transcript -->
+      {% if speech.transcript %}
+        <div class="bg-white shadow rounded-lg p-6 mb-6">
+          <h2 class="text-lg font-medium text-gray-900 mb-4">Transcript</h2>
+          <div class="prose max-w-none">{{ speech.transcript|linebreaks }}</div>
+        </div>
+      {% endif %}
+
+      <!-- Feedback -->
+      {% if speech.feedback %}
+        <div class="bg-white shadow rounded-lg p-6">
+          <h2 class="text-lg font-medium text-gray-900 mb-4">AI Feedback</h2>
+          <div class="prose max-w-none">{{ speech.feedback|linebreaks }}</div>
+        </div>
+      {% elif speech.status == 'processing' %}
+        <div class="bg-white shadow rounded-lg p-6">
+          <div class="text-center">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto mb-4"></div>
+            <p class="text-gray-600">Analyzing your speech...</p>
+            <p class="text-sm text-gray-500 mt-2">This may take a few minutes. You can leave this page and come back later.</p>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

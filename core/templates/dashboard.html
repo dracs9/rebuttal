@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Dashboard - Debate Coach AI
+{% endblock %}
+
+{% block content %}
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Welcome Section -->
+    <div class="bg-white shadow rounded-lg p-6 mb-8">
+      <div class="flex items-center space-x-4">
+        <div class="flex-shrink-0">
+          <img class="h-16 w-16 rounded-full" src="{% static 'desygn/profile.jpg' %}" alt="Profile" />
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900">Welcome, {{ user.username }}!</h2>
+          <p class="text-gray-600">Your personal debate coaching dashboard</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upload New Speech Button -->
+    <div class="mb-8">
+      <a href="{% url 'upload_speech' %}" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        <i class="fas fa-upload mr-2"></i>
+        Upload New Speech
+      </a>
+    </div>
+
+    <!-- Recent Speeches Section -->
+    <div class="bg-white shadow rounded-lg">
+      <div class="px-6 py-4 border-b border-gray-200">
+        <h3 class="text-lg font-medium text-gray-900">Your Recent Speeches</h3>
+      </div>
+      <div class="divide-y divide-gray-200">
+        {% if speeches %}
+          {% for speech in speeches %}
+            <div class="p-6">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h4 class="text-lg font-medium text-gray-900">{{ speech.title }}</h4>
+                  <p class="text-sm text-gray-500">Uploaded on {{ speech.created_at|date:'F j, Y' }}</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                  <span class="px-3 py-1 text-sm rounded-full 
+                                {% if speech.status == 'analyzed' %}
+                      
+                      bg-green-100 text-green-800
+
+
+                    {% elif speech.status == 'processing' %}
+                      
+                      bg-yellow-100 text-yellow-800
+
+
+                    {% else %}
+                      
+                      bg-gray-100 text-gray-800
+
+                    {% endif %}">
+                    {{ speech.get_status_display }}
+                  </span>
+                  <a href="{% url 'speech_detail' speech.id %}" class="text-indigo-600 hover:text-indigo-900">View Details</a>
+                </div>
+              </div>
+              {% if speech.feedback %}
+                <div class="mt-4 text-sm text-gray-600">
+                  <p class="font-medium">Latest Feedback:</p>
+                  <p class="mt-1">{{ speech.feedback|truncatewords:30 }}</p>
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="p-6 text-center text-gray-500">
+            <p>You haven't uploaded any speeches yet.</p>
+            <p class="mt-2">Click the "Upload New Speech" button to get started!</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
