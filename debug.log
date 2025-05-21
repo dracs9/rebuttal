@@ -135,3 +135,41 @@ INFO 2025-05-22 00:27:44,584 utils Checking Whisper and FFmpeg availability
 INFO 2025-05-22 00:27:44,586 utils Checking FFmpeg at: C:\Users\dark0\dev\rebuttal\venv\Scripts\ffmpeg.exe
 INFO 2025-05-22 00:27:44,628 utils FFmpeg is available
 INFO 2025-05-22 00:27:45,908 utils Whisper is available
+INFO 2025-05-21 23:53:39,743 utils Checking Whisper and FFmpeg availability
+INFO 2025-05-21 23:53:39,745 utils Checking FFmpeg at: C:\Users\dark0\dev\rebuttal\venv\Scripts\ffmpeg.exe
+INFO 2025-05-21 23:53:46,094 utils FFmpeg is available
+INFO 2025-05-21 23:53:47,855 utils Whisper is available
+INFO 2025-05-21 23:54:30,286 tasks Successfully analyzed speech 4
+INFO 2025-05-21 23:57:02,370 utils Checking Whisper and FFmpeg availability
+INFO 2025-05-21 23:57:02,371 utils Checking FFmpeg at: C:\Users\dark0\dev\rebuttal\venv\Scripts\ffmpeg.exe
+INFO 2025-05-21 23:57:02,425 utils FFmpeg is available
+INFO 2025-05-21 23:57:03,101 utils Whisper is available
+INFO 2025-05-21 23:57:13,608 utils Checking Whisper and FFmpeg availability
+INFO 2025-05-21 23:57:13,609 utils Checking FFmpeg at: C:\Users\dark0\dev\rebuttal\venv\Scripts\ffmpeg.exe
+INFO 2025-05-21 23:57:13,648 utils FFmpeg is available
+INFO 2025-05-21 23:57:14,232 utils Whisper is available
+INFO 2025-05-21 23:57:21,472 views Form is valid, checking Whisper status
+INFO 2025-05-21 23:57:21,473 utils Checking Whisper and FFmpeg availability
+INFO 2025-05-21 23:57:21,474 utils Checking FFmpeg at: C:\Users\dark0\dev\rebuttal\venv\Scripts\ffmpeg.exe
+INFO 2025-05-21 23:57:21,508 utils FFmpeg is available
+INFO 2025-05-21 23:57:22,089 utils Whisper is available
+INFO 2025-05-21 23:57:22,105 views Speech saved with ID: 5
+INFO 2025-05-21 23:57:22,105 views Audio file path: C:\Users\dark0\dev\rebuttal\media\speeches\test_speech_T2dL6v8.mp3
+INFO 2025-05-21 23:57:22,112 views Audio file URL: /media/speeches/test_speech_T2dL6v8.mp3
+INFO 2025-05-21 23:57:22,113 views Audio file name: speeches/test_speech_T2dL6v8.mp3
+INFO 2025-05-21 23:57:22,113 tasks Starting async processing for speech 5
+INFO 2025-05-21 23:57:22,116 views Started processing speech 5
+INFO 2025-05-21 23:57:22,119 tasks Starting to process speech 5
+INFO 2025-05-21 23:57:22,129 tasks Got speech file path for 5
+INFO 2025-05-21 23:57:22,129 tasks Processing speech 5 with Whisper
+INFO 2025-05-21 23:57:22,130 utils Checking FFmpeg at: C:\Users\dark0\dev\rebuttal\venv\Scripts\ffmpeg.exe
+INFO 2025-05-21 23:57:22,152 utils FFmpeg is available
+INFO 2025-05-21 23:57:22,153 utils Processing audio file at absolute path: C:\Users\dark0\dev\rebuttal\media\speeches\test_speech_T2dL6v8.mp3
+INFO 2025-05-21 23:57:22,154 utils Loading Whisper model
+INFO 2025-05-21 23:57:22,649 utils Model loaded successfully
+INFO 2025-05-21 23:57:22,650 utils Starting transcription of: C:\Users\dark0\dev\rebuttal\media\speeches\test_speech_T2dL6v8.mp3
+INFO 2025-05-21 23:57:30,751 utils Transcription completed successfully
+INFO 2025-05-21 23:57:30,752 utils Transcript extracted successfully
+INFO 2025-05-21 23:57:30,752 tasks Successfully processed speech 5
+ERROR 2025-05-21 23:58:31,880 tasks Error analyzing speech 5: Error analyzing speech: Failed to parse model response as JSON: Expecting ',' delimiter: line 7 column 420 (char 553)
+INFO 2025-05-21 23:59:37,237 tasks Successfully analyzed speech 5

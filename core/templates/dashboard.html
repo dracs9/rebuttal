@@ -22,7 +22,7 @@
 
     <!-- Upload New Speech Button -->
     <div class="mb-8">
-      <a href="{% url 'upload_speech' %}" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+      <a href="{% url 'core:upload_speech' %}" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
         <i class="fas fa-upload mr-2"></i>
         Upload New Speech
       </a>
@@ -46,22 +46,28 @@
                   <span class="px-3 py-1 text-sm rounded-full 
                                 {% if speech.status == 'analyzed' %}
                       
+                      
                       bg-green-100 text-green-800
+
 
 
                     {% elif speech.status == 'processing' %}
                       
+                      
                       bg-yellow-100 text-yellow-800
+
 
 
                     {% else %}
                       
+                      
                       bg-gray-100 text-gray-800
+
 
                     {% endif %}">
                     {{ speech.get_status_display }}
                   </span>
-                  <a href="{% url 'speech_detail' speech.id %}" class="text-indigo-600 hover:text-indigo-900">View Details</a>
+                  <a href="{% url 'core:speech_detail' speech.id %}" class="text-indigo-600 hover:text-indigo-900">View Details</a>
                 </div>
               </div>
               {% if speech.feedback %}

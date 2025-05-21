@@ -43,3 +43,33 @@ class Speech(models.Model):
         self.error_message = error_message
         self.processing_completed = timezone.now()
         self.save()
+
+
+class SpeechAnalysis(models.Model):
+    speech = models.OneToOneField(Speech, on_delete=models.CASCADE, related_name="analysis")
+    structure_score = models.IntegerField(null=True, blank=True)
+    argument_score = models.IntegerField(null=True, blank=True)
+    persuasiveness_score = models.IntegerField(null=True, blank=True)
+    rhetoric_score = models.IntegerField(null=True, blank=True)
+    delivery_score = models.IntegerField(null=True, blank=True)
+    feedback = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name_plural = "Speech analyses"
+
+    def __str__(self):
+        return f"Analysis for {self.speech.title}"
+
+    @property
+    def average_score(self):
+        scores = [
+            self.structure_score,
+            self.argument_score,
+            self.persuasiveness_score,
+            self.rhetoric_score,
+            self.delivery_score,
+        ]
+        valid_scores = [s for s in scores if s is not None]
+        return sum(valid_scores) / len(valid_scores) if valid_scores else None

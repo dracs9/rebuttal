@@ -6,103 +6,122 @@
 {% endblock %}
 
 {% block content %}
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <!-- Back to Dashboard -->
-    <div class="mb-6">
-      <a href="{% url 'dashboard' %}" class="text-indigo-600 hover:text-indigo-900"><i class="fas fa-arrow-left mr-2"></i>Back to Dashboard</a>
-    </div>
+  <div class="container mx-auto px-4 py-8">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+        <h1 class="text-2xl font-bold mb-4">{{ speech.title }}</h1>
 
-    <!-- Speech Header -->
-    <div class="bg-white shadow overflow-hidden sm:rounded-lg mb-8">
-      <div class="px-4 py-5 sm:px-6">
-        <div class="flex justify-between items-center">
-          <div>
-            <h3 class="text-lg leading-6 font-medium text-gray-900">{{ speech.title }}</h3>
-            <p class="mt-1 max-w-2xl text-sm text-gray-500">Uploaded on {{ speech.upload_date|date:'F j, Y, g:i a' }}</p>
-          </div>
-          <div>
-            <span class="px-3 py-1 rounded-full text-sm font-medium
-              {% if speech.status == 'completed' %}
-                
-                bg-green-100 text-green-800
-
-              {% elif speech.status == 'processing' %}
-                
-                bg-yellow-100 text-yellow-800
-
-              {% elif speech.status == 'failed' %}
-                
-                bg-red-100 text-red-800
-
-              {% else %}
-                
-                bg-gray-100 text-gray-800
-
-              {% endif %}">
-              {{ speech.get_status_display }}
-            </span>
-          </div>
+        <div class="mb-4">
+          <p class="text-gray-600">Uploaded: {{ speech.upload_date|date:'F j, Y, g:i a' }}</p>
+          <p class="text-gray-600">Status: {{ speech.get_status_display }}</p>
         </div>
-      </div>
-    </div>
 
-    <!-- Audio Player -->
-    <div class="bg-white shadow sm:rounded-lg mb-8">
-      <div class="px-4 py-5 sm:p-6">
-        <h4 class="text-lg font-medium text-gray-900 mb-4">Audio Recording</h4>
-        <audio controls class="w-full">
-          <source src="{{ speech.audio_file.url }}" type="audio/mpeg" />Your browser does not support the audio element.
-        </audio>
-      </div>
-    </div>
-
-    <!-- Transcript Section -->
-    <div class="bg-white shadow sm:rounded-lg mb-8" id="transcript-section">
-      <div class="px-4 py-5 sm:p-6">
-        <h4 class="text-lg font-medium text-gray-900 mb-4">Transcript</h4>
-        {% if speech.status == 'completed' %}
-          <div class="prose max-w-none">{{ speech.transcript|linebreaks }}</div>
-        {% elif speech.status == 'processing' %}
-          <div class="flex items-center justify-center py-8">
-            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
-            <span class="ml-3 text-gray-600">Processing your speech...</span>
+        {% if speech.transcript %}
+          <div class="mb-6">
+            <h2 class="text-xl font-semibold mb-2">Transcript</h2>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <p class="whitespace-pre-wrap">{{ speech.transcript }}</p>
+            </div>
           </div>
-        {% elif speech.status == 'failed' %}
-          <div class="bg-red-50 border-l-4 border-red-400 p-4">
+
+          {% if not analysis and ollama_available %}
+            <div class="mb-6">
+              <a href="{% url 'core:analyze_speech' speech.id %}" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">Analyze Speech with AI</a>
+            </div>
+          {% endif %}
+
+          {% if analysis %}
+            <div class="mb-6">
+              <h2 class="text-xl font-semibold mb-4">AI Analysis</h2>
+
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h3 class="font-medium text-gray-700">Structure</h3>
+                  <p class="text-2xl font-bold text-blue-600">{{ analysis.structure_score }}/10</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h3 class="font-medium text-gray-700">Arguments</h3>
+                  <p class="text-2xl font-bold text-blue-600">{{ analysis.argument_score }}/10</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h3 class="font-medium text-gray-700">Persuasiveness</h3>
+                  <p class="text-2xl font-bold text-blue-600">{{ analysis.persuasiveness_score }}/10</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h3 class="font-medium text-gray-700">Rhetoric</h3>
+                  <p class="text-2xl font-bold text-blue-600">{{ analysis.rhetoric_score }}/10</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h3 class="font-medium text-gray-700">Delivery</h3>
+                  <p class="text-2xl font-bold text-blue-600">{{ analysis.delivery_score }}/10</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h3 class="font-medium text-gray-700">Average</h3>
+                  <p class="text-2xl font-bold text-blue-600">{{ analysis.average_score|floatformat:1 }}/10</p>
+                </div>
+              </div>
+
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h3 class="font-medium text-gray-700 mb-2">Feedback</h3>
+                <div class="prose max-w-none">{{ analysis.feedback|linebreaks }}</div>
+              </div>
+            </div>
+          {% elif not ollama_available %}
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <svg class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <div class="ml-3">
+                  <p class="text-sm text-yellow-700">Ollama service is not available. Please make sure it's running with the Mistral model.</p>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% else %}
+          <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
             <div class="flex">
               <div class="flex-shrink-0">
-                <i class="fas fa-exclamation-circle text-red-400"></i>
+                <svg class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
               </div>
               <div class="ml-3">
-                <p class="text-sm text-red-700">{{ speech.error_message }}</p>
+                <p class="text-sm text-yellow-700">Transcript is not available yet. Please wait for processing to complete.</p>
               </div>
             </div>
           </div>
-        {% else %}
-          <div class="text-gray-500 text-center py-8">Transcript will appear here once processing is complete.</div>
         {% endif %}
       </div>
     </div>
   </div>
 
-  {% if speech.status == 'processing' %}
+  {% if not analysis and speech.transcript and ollama_available %}
     <script>
-      function checkStatus() {
-        fetch("{% url 'speech_status' speech.id %}")
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.status === 'completed') {
-              window.location.reload()
-            } else if (data.status === 'failed') {
-              window.location.reload()
-            } else {
-              setTimeout(checkStatus, 2000)
-            }
-          })
-      }
-      
-      // Start checking status
-      checkStatus()
-    </script>
+    // Poll for analysis status
+    function checkAnalysisStatus() {
+      fetch("{% url 'core:analysis_status' speech.id %}")
+        .then(response => response.json())
+        .then(data => {
+          if (data.status === 'completed') {
+            window.location.reload();
+          } else {
+            setTimeout(checkAnalysisStatus, 2000);
+          }
+        })
+        .catch(error => console.error('Error checking analysis status:', error));
+    }
+
+    // Start polling if analysis was just started
+    {% if messages %}
+      {% for message in messages %}
+        {% if 'analysis started' in message.message|lower %}
+          checkAnalysisStatus();
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </script>
   {% endif %}
 {% endblock %}
