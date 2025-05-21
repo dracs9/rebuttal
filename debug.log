@@ -1,0 +1,133 @@
+INFO 2025-05-21 23:54:48,122 utils Checking Whisper availability
+INFO 2025-05-21 23:54:50,412 utils Whisper is not available
+INFO 2025-05-21 23:54:56,901 views Form is valid, checking Whisper status
+INFO 2025-05-21 23:54:56,902 utils Checking Whisper availability
+INFO 2025-05-21 23:54:59,186 utils Whisper is not available
+ERROR 2025-05-21 23:54:59,186 views Whisper is not available
+INFO 2025-05-21 23:55:03,951 utils Checking Whisper availability
+INFO 2025-05-21 23:55:06,265 utils Whisper is not available
+INFO 2025-05-21 23:56:08,608 utils Checking Whisper availability
+ERROR 2025-05-21 23:56:08,610 utils Whisper command not found
+INFO 2025-05-21 23:56:20,387 views Form is valid, checking Whisper status
+INFO 2025-05-21 23:56:20,388 utils Checking Whisper availability
+ERROR 2025-05-21 23:56:20,391 utils Whisper command not found
+ERROR 2025-05-21 23:56:20,392 views Whisper is not available
+INFO 2025-05-21 23:57:05,874 utils Checking Whisper availability at C:\Users\dark0\dev\venv\Scripts\whisper.exe
+ERROR 2025-05-21 23:57:05,876 utils Whisper executable not found at: C:\Users\dark0\dev\venv\Scripts\whisper.exe
+INFO 2025-05-21 23:57:14,163 views Form is valid, checking Whisper status
+INFO 2025-05-21 23:57:14,164 utils Checking Whisper availability at C:\Users\dark0\dev\venv\Scripts\whisper.exe
+ERROR 2025-05-21 23:57:14,165 utils Whisper executable not found at: C:\Users\dark0\dev\venv\Scripts\whisper.exe
+ERROR 2025-05-21 23:57:14,166 views Whisper is not available
+INFO 2025-05-21 23:59:09,749 utils Checking Whisper availability at C:\Users\dark0\dev\rebuttal\venv\Scripts\whisper.exe
+INFO 2025-05-21 23:59:12,095 utils Whisper is not available
+INFO 2025-05-21 23:59:23,795 utils Checking Whisper availability at C:\Users\dark0\dev\rebuttal\venv\Scripts\whisper.exe
+INFO 2025-05-21 23:59:24,546 utils Checking Whisper availability at C:\Users\dark0\dev\rebuttal\venv\Scripts\whisper.exe
+INFO 2025-05-21 23:59:26,174 utils Whisper is not available
+INFO 2025-05-21 23:59:27,048 utils Whisper is not available
+INFO 2025-05-21 23:59:38,350 utils Checking Whisper availability at C:\Users\dark0\dev\rebuttal\venv\Scripts\whisper.exe
+INFO 2025-05-21 23:59:40,686 utils Whisper is not available
+INFO 2025-05-22 00:01:07,153 utils Checking Whisper availability
+INFO 2025-05-22 00:01:19,504 utils Whisper is available
+INFO 2025-05-22 00:02:22,412 views Form is valid, checking Whisper status
+INFO 2025-05-22 00:02:22,414 utils Checking Whisper availability
+INFO 2025-05-22 00:02:23,800 utils Whisper is available
+INFO 2025-05-22 00:02:23,817 views Speech saved with ID: 2
+INFO 2025-05-22 00:02:23,818 tasks Starting async processing for speech 2
+INFO 2025-05-22 00:02:23,821 views Started processing speech 2
+INFO 2025-05-22 00:02:23,826 tasks Starting to process speech 2
+INFO 2025-05-22 00:02:23,836 tasks Got speech file path for 2
+INFO 2025-05-22 00:02:23,837 tasks Processing speech 2 with Whisper
+INFO 2025-05-22 00:02:23,838 utils Loading Whisper model
+INFO 2025-05-22 00:02:25,620 utils Model loaded successfully
+INFO 2025-05-22 00:02:25,620 utils Processing audio file: C:\Users\dark0\dev\rebuttal\media\speeches\Тестовый-спич.mp3
+ERROR 2025-05-22 00:02:25,666 utils Error processing speech: [WinError 2] Не удается найти указанный файл
+ERROR 2025-05-22 00:02:25,667 tasks Unexpected error processing speech 2: Error processing speech: [WinError 2] Не удается найти указанный файл
+INFO 2025-05-22 00:03:52,365 utils Checking Whisper availability
+INFO 2025-05-22 00:03:53,637 utils Whisper is available
+INFO 2025-05-22 00:04:05,831 utils Checking Whisper availability
+INFO 2025-05-22 00:04:06,373 utils Whisper is available
+INFO 2025-05-22 00:04:26,045 views Form is valid, checking Whisper status
+INFO 2025-05-22 00:04:26,046 utils Checking Whisper availability
+INFO 2025-05-22 00:04:26,614 utils Whisper is available
+INFO 2025-05-22 00:04:26,626 views Speech saved with ID: 3
+INFO 2025-05-22 00:04:26,627 views Audio file path: C:\Users\dark0\dev\rebuttal\media\speeches\test_speech.mp3
+INFO 2025-05-22 00:04:26,628 views Audio file URL: /media/speeches/test_speech.mp3
+INFO 2025-05-22 00:04:26,628 views Audio file name: speeches/test_speech.mp3
+INFO 2025-05-22 00:04:26,629 tasks Starting async processing for speech 3
+INFO 2025-05-22 00:04:26,630 views Started processing speech 3
+INFO 2025-05-22 00:04:26,634 tasks Starting to process speech 3
+INFO 2025-05-22 00:04:26,652 tasks Got speech file path for 3
+INFO 2025-05-22 00:04:26,653 tasks Processing speech 3 with Whisper
+INFO 2025-05-22 00:04:26,653 utils Processing audio file at absolute path: C:\Users\dark0\dev\rebuttal\media\speeches\test_speech.mp3
+INFO 2025-05-22 00:04:26,654 utils Loading Whisper model
+INFO 2025-05-22 00:04:27,217 utils Model loaded successfully
+INFO 2025-05-22 00:04:27,217 utils Starting transcription of: C:\Users\dark0\dev\rebuttal\media\speeches\test_speech.mp3
+ERROR 2025-05-22 00:04:27,228 utils Error processing speech: [WinError 2] Не удается найти указанный файл
+ERROR 2025-05-22 00:04:27,229 utils Error type: <class 'FileNotFoundError'>
+ERROR 2025-05-22 00:04:27,234 utils Traceback: Traceback (most recent call last):
+  File "C:\Users\dark0\dev\rebuttal\core\utils.py", line 34, in process_speech_with_whisper
+    result = model.transcribe(audio_path, language="en", fp16=False)  # Use CPU
+  File "C:\Users\dark0\dev\rebuttal\venv\Lib\site-packages\whisper\transcribe.py", line 139, in transcribe
+    mel = log_mel_spectrogram(audio, model.dims.n_mels, padding=N_SAMPLES)
+  File "C:\Users\dark0\dev\rebuttal\venv\Lib\site-packages\whisper\audio.py", line 140, in log_mel_spectrogram
+    audio = load_audio(audio)
+  File "C:\Users\dark0\dev\rebuttal\venv\Lib\site-packages\whisper\audio.py", line 58, in load_audio
+    out = run(cmd, capture_output=True, check=True).stdout
+          ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dark0\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 554, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dark0\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dark0\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1551, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] Не удается найти указанный файл
+
+ERROR 2025-05-22 00:04:27,235 tasks Unexpected error processing speech 3: Error processing speech: [WinError 2] Не удается найти указанный файл
+INFO 2025-05-22 00:12:26,242 utils Checking Whisper and FFmpeg availability
+INFO 2025-05-22 00:12:26,244 utils Checking FFmpeg at: C:\Users\dark0\dev\rebuttal\venv\Scripts\ffmpeg.exe
+INFO 2025-05-22 00:12:35,427 utils FFmpeg is available
+INFO 2025-05-22 00:12:36,068 utils Checking Whisper and FFmpeg availability
+INFO 2025-05-22 00:12:36,069 utils Checking FFmpeg at: C:\Users\dark0\dev\rebuttal\venv\Scripts\ffmpeg.exe
+INFO 2025-05-22 00:12:36,101 utils FFmpeg is available
+INFO 2025-05-22 00:12:37,455 utils Whisper is available
+INFO 2025-05-22 00:12:37,705 utils Whisper is available
+INFO 2025-05-22 00:12:48,372 views Form is valid, checking Whisper status
+INFO 2025-05-22 00:12:48,373 utils Checking Whisper and FFmpeg availability
+INFO 2025-05-22 00:12:48,373 utils Checking FFmpeg at: C:\Users\dark0\dev\rebuttal\venv\Scripts\ffmpeg.exe
+INFO 2025-05-22 00:12:48,401 utils FFmpeg is available
+INFO 2025-05-22 00:12:48,945 utils Whisper is available
+INFO 2025-05-22 00:12:48,954 views Speech saved with ID: 4
+INFO 2025-05-22 00:12:48,955 views Audio file path: C:\Users\dark0\dev\rebuttal\media\speeches\test_speech_xYbY6XG.mp3
+INFO 2025-05-22 00:12:48,955 views Audio file URL: /media/speeches/test_speech_xYbY6XG.mp3
+INFO 2025-05-22 00:12:48,955 views Audio file name: speeches/test_speech_xYbY6XG.mp3
+INFO 2025-05-22 00:12:48,955 tasks Starting async processing for speech 4
+INFO 2025-05-22 00:12:48,956 views Started processing speech 4
+INFO 2025-05-22 00:12:48,958 tasks Starting to process speech 4
+INFO 2025-05-22 00:12:48,964 tasks Got speech file path for 4
+INFO 2025-05-22 00:12:48,964 tasks Processing speech 4 with Whisper
+INFO 2025-05-22 00:12:48,965 utils Checking FFmpeg at: C:\Users\dark0\dev\rebuttal\venv\Scripts\ffmpeg.exe
+INFO 2025-05-22 00:12:48,991 utils FFmpeg is available
+INFO 2025-05-22 00:12:48,991 utils Processing audio file at absolute path: C:\Users\dark0\dev\rebuttal\media\speeches\test_speech_xYbY6XG.mp3
+INFO 2025-05-22 00:12:48,992 utils Loading Whisper model
+INFO 2025-05-22 00:12:49,470 utils Model loaded successfully
+INFO 2025-05-22 00:12:49,471 utils Starting transcription of: C:\Users\dark0\dev\rebuttal\media\speeches\test_speech_xYbY6XG.mp3
+INFO 2025-05-22 00:12:57,619 utils Transcription completed successfully
+INFO 2025-05-22 00:12:57,619 utils Transcript extracted successfully
+INFO 2025-05-22 00:12:57,620 tasks Successfully processed speech 4

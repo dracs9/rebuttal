@@ -13,6 +13,7 @@ urlpatterns = [
     path("dashboard/", views.dashboard, name="dashboard"),
     path("speech/upload/", views.upload_speech, name="upload_speech"),
     path("speech/<int:speech_id>/", views.speech_detail, name="speech_detail"),
+    path("speech/<int:speech_id>/status/", views.speech_status, name="speech_status"),
 ]
 
 if settings.DEBUG:
