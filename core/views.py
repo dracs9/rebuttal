@@ -127,7 +127,7 @@ def analyze_speech(request, speech_id):
 
     try:
         # Run analysis in a background thread
-        thread = threading.Thread(target=analyze_speech_with_ai, args=(speech.id,))
+        thread = threading.Thread(target=analyze_speech_with_ai, args=(speech.id,)) # type: ignore
         thread.daemon = True
         thread.start()
 
